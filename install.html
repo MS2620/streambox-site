@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Install Tellio on Apple TV</title>
+<meta name="description" content="How to install Tellio on your Apple TV with atvloadly: what you need, step by step, updating and troubleshooting.">
+<meta property="og:title" content="Install Tellio on Apple TV">
+<meta property="og:description" content="A native Apple TV player for your own Stremio addons and IPTV account.">
+<meta name="theme-color" content="#161c27">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:image" content="https://ms2620.github.io/tellio-site/screens/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0f131b}
+html{scroll-behavior:smooth}
+a{color:#ffffff}a:hover{color:#d6dcea}
+a:focus-visible{outline:3px solid #9fb0cf;outline-offset:3px;border-radius:8px}
+section{scroll-margin-top:20px}
+</style>
+</head>
+<body>
+<div style="min-height:100vh;font-family:Inter, system-ui, sans-serif;color:#ffffff;background:#0f131b">
+  <header style="background:radial-gradient(46rem 30rem at 5% 0%, rgba(89,128,179,0.4), rgba(0,0,0,0)),#161c27">
+    <nav style="max-width:1200px;margin:0 auto;padding:22px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:20px">
+      <a href="index.html" aria-label="Tellio home" style="display:flex;align-items:center;gap:12px;text-decoration:none"><img src="logo.png" alt="" width="40" height="40" style="width:40px;height:40px;border-radius:11px;display:block"><img src="wordmark.png" alt="Tellio" height="26" style="height:26px;width:auto;display:block"></a>
+      <span style="flex:1"></span>
+      <div style="display:flex;flex-wrap:wrap;gap:22px;font-size:15px;font-weight:600"><a href="index.html#features" style="text-decoration:none">Features</a><a href="index.html#screens" style="text-decoration:none">Screens</a><a href="index.html#how" style="text-decoration:none">How it works</a><a href="index.html#install" style="text-decoration:none">Install</a><a href="index.html#limits" style="text-decoration:none">Limitations</a><a href="index.html#faq" style="text-decoration:none">FAQ</a></div>
+      <a href="index.html#install" style="padding:12px 22px;border-radius:999px;background:#ffffff;color:#10131a;font-size:15px;font-weight:800;text-decoration:none">Get Tellio</a>
+    </nav>
+    <div style="max-width:880px;margin:0 auto;padding:40px 24px 60px;display:flex;flex-direction:column;gap:16px">
+      <span style="font-size:13px;font-weight:800;letter-spacing:2px;color:#9fb0cf">INSTALL GUIDE</span>
+      <h1 style="margin:0;font-size:clamp(2rem, 4.5vw, 3.2rem);font-weight:800;letter-spacing:-0.02em">Install Tellio on your Apple TV</h1>
+      <p style="margin:0;font-size:18px;line-height:1.6;color:#c4cbd8">Tellio isn't on the App Store, so you install it yourself with atvloadly, a free tool that signs apps with your Apple ID and keeps them working. It takes about 20 minutes the first time.</p>
+    </div>
+  </header>
+  <main style="max-width:880px;margin:0 auto;padding:40px 24px 90px;display:flex;flex-direction:column;gap:20px">
+    <section style="padding:28px;border-radius:24px;background:#ffffff;color:#10131a;display:flex;flex-direction:column;gap:10px">
+      <h2 style="margin:0;font-size:22px;font-weight:800">What you need</h2>
+      <ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px;font-size:16px;line-height:1.6;color:#2c3240">
+        <li>An Apple TV on <b>tvOS 18 or later</b>, on your home network.</li>
+        <li>A <b>Linux</b> machine on the same network that runs Docker: a Linux PC, a Raspberry Pi, or a NAS. atvloadly doesn't run on Windows or Mac.</li>
+        <li>An <b>Apple ID</b>. Use a spare one, not your main account. A free Apple ID works.</li>
+        <li>Your IPTV login (Xtream Codes) and/or your Stremio addon links, for after installing.</li>
+      </ul>
+    </section>
+    <section style="display:grid;grid-template-columns:56px 1fr;gap:20px;padding:28px;border-radius:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)">
+      <span style="width:44px;height:44px;border-radius:50%;background:#ffffff;color:#10131a;font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center">1</span>
+      <div style="display:flex;flex-direction:column;gap:10px;min-width:0"><h2 style="margin:0;font-size:22px;font-weight:800">Run atvloadly</h2><p style="margin:0;font-size:16px;line-height:1.65;color:#c4cbd8">Follow the setup on atvloadly's GitHub page. In short: install and start <code style="font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;font-size:15px;padding:2px 8px;border-radius:6px;background:rgba(255,255,255,0.12)">avahi-daemon</code> on the Linux machine, then run atvloadly in Docker. Its web page then opens on port 5533, at <code style="font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;font-size:15px;padding:2px 8px;border-radius:6px;background:rgba(255,255,255,0.12)">http://&lt;your-machine&gt;:5533</code>.</p><p style="margin:0;font-size:16px;line-height:1.65;color:#c4cbd8"><a href="https://github.com/bitxeno/atvloadly">atvloadly on GitHub</a></p></div>
+    </section>
+    <section style="display:grid;grid-template-columns:56px 1fr;gap:20px;padding:28px;border-radius:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)">
+      <span style="width:44px;height:44px;border-radius:50%;background:#ffffff;color:#10131a;font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center">2</span>
+      <div style="display:flex;flex-direction:column;gap:10px;min-width:0"><h2 style="margin:0;font-size:22px;font-weight:800">Pair your Apple TV</h2><p style="margin:0;font-size:16px;line-height:1.65;color:#c4cbd8">On the Apple TV, go to <b>Settings › Remotes and Devices › Remote App and Devices</b>. Keep that screen open, then in atvloadly's web page pick your Apple TV and enter the code shown on the TV.</p></div>
+    </section>
+    <section style="display:grid;grid-template-columns:56px 1fr;gap:20px;padding:28px;border-radius:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)">
+      <span style="width:44px;height:44px;border-radius:50%;background:#ffffff;color:#10131a;font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center">3</span>
+      <div style="display:flex;flex-direction:column;gap:10px;min-width:0"><h2 style="margin:0;font-size:22px;font-weight:800">Sign in with your Apple ID</h2><p style="margin:0;font-size:16px;line-height:1.65;color:#c4cbd8">Enter the spare Apple ID in atvloadly. Apple sends a sign-in code to your iPhone or other trusted device, so have it nearby and approve it quickly.</p></div>
+    </section>
+    <section style="display:grid;grid-template-columns:56px 1fr;gap:20px;padding:28px;border-radius:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)">
+      <span style="width:44px;height:44px;border-radius:50%;background:#ffffff;color:#10131a;font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center">4</span>
+      <div style="display:flex;flex-direction:column;gap:10px;min-width:0"><h2 style="margin:0;font-size:22px;font-weight:800">Download Tellio</h2><p style="margin:0;font-size:16px;line-height:1.65;color:#c4cbd8">Download <b>Tellio.ipa</b> from the latest build on the <a href="https://github.com/MS2620/tellio/releases">releases page</a>. Each build lists what changed.</p></div>
+    </section>
+    <section style="display:grid;grid-template-columns:56px 1fr;gap:20px;padding:28px;border-radius:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)">
+      <span style="width:44px;height:44px;border-radius:50%;background:#ffffff;color:#10131a;font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center">5</span>
+      <div style="display:flex;flex-direction:column;gap:10px;min-width:0"><h2 style="margin:0;font-size:22px;font-weight:800">Install it</h2><p style="margin:0;font-size:16px;line-height:1.65;color:#c4cbd8">In atvloadly, select your Apple TV, choose the Tellio.ipa you downloaded, and select Install. The upload reaches 100%, then the Apple TV installs it; this can take a minute or two.</p></div>
+    </section>
+    <section style="display:grid;grid-template-columns:56px 1fr;gap:20px;padding:28px;border-radius:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)">
+      <span style="width:44px;height:44px;border-radius:50%;background:#ffffff;color:#10131a;font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center">6</span>
+      <div style="display:flex;flex-direction:column;gap:10px;min-width:0"><h2 style="margin:0;font-size:22px;font-weight:800">Open Tellio and set up</h2><p style="margin:0;font-size:16px;line-height:1.65;color:#c4cbd8">Open Tellio from the Apple TV home screen and follow the short setup: your IPTV account, your addons and your teams. Each step can be skipped.</p></div>
+    </section>
+    <section style="display:flex;flex-direction:column;gap:12px;padding-top:20px">
+      <h2 style="margin:0;font-size:26px;font-weight:800">Updating</h2>
+      <p style="margin:0;font-size:16px;line-height:1.65;color:#c4cbd8">When a new build is out, Tellio shows a card on launch and Settings › About says so. Download the new Tellio.ipa and install it over the old one in atvloadly. Your settings are kept.</p>
+      <h2 style="margin:20px 0 0;font-size:26px;font-weight:800">Good to know</h2>
+      <ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="font-size:16px;line-height:1.6;color:#c4cbd8">atvloadly re-signs Tellio automatically, so it keeps working. Leave the Linux machine running.</li><li style="font-size:16px;line-height:1.6;color:#c4cbd8">A free Apple ID can have <b>3</b> sideloaded apps working at once, and register 10 a week.</li><li style="font-size:16px;line-height:1.6;color:#c4cbd8">After a tvOS update you may need to pair the Apple TV with atvloadly again.</li><li style="font-size:16px;line-height:1.6;color:#c4cbd8">To move to another Apple TV, use Settings › Backup &amp; restore if you run a backup server.</li></ul>
+    </section>
+    <section style="display:flex;flex-direction:column;gap:12px;padding-top:20px">
+      <h2 style="margin:0;font-size:26px;font-weight:800">Troubleshooting</h2>
+      <div style="padding:22px 26px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)"><h3 style="margin:0 0 6px;font-size:18px;font-weight:700">The install stays at 100%</h3><p style="margin:0;font-size:16px;line-height:1.6;color:#c4cbd8">Wait two minutes, then check the Apple TV home screen. If it hasn't appeared, wake the Apple TV and install again. If it still sticks, delete Tellio from the Apple TV first.</p></div>
+      <div style="padding:22px 26px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)"><h3 style="margin:0 0 6px;font-size:18px;font-weight:700">atvloadly can't find my Apple TV</h3><p style="margin:0;font-size:16px;line-height:1.6;color:#c4cbd8">Make sure both are on the same network and the Apple TV is on the Remote App and Devices screen. atvloadly's page has more tips.</p></div>
+      <div style="padding:22px 26px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)"><h3 style="margin:0 0 6px;font-size:18px;font-weight:700">Apple ID sign-in fails</h3><p style="margin:0;font-size:16px;line-height:1.6;color:#c4cbd8">Approve the code on your trusted device quickly. Apple sometimes blocks new sign-ins; trying again later or using another spare Apple ID usually helps.</p></div>
+      <div style="padding:22px 26px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)"><h3 style="margin:0 0 6px;font-size:18px;font-weight:700">The Top Shelf is blank</h3><p style="margin:0;font-size:16px;line-height:1.6;color:#c4cbd8">Delete Tellio and install it again; the Top Shelf part needs a clean install.</p></div>
+      <div style="padding:22px 26px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)"><h3 style="margin:0 0 6px;font-size:18px;font-weight:700">Something else</h3><p style="margin:0;font-size:16px;line-height:1.6;color:#c4cbd8">Use Settings › About › Send feedback on the Apple TV, or <a href="https://github.com/MS2620/tellio/issues">open an issue on GitHub</a>.</p></div>
+    </section>
+  </main>
+  <footer style="border-top:1px solid rgba(255,255,255,0.1);background:#0b0e14">
+    <div style="max-width:1200px;margin:0 auto;padding:40px 24px;display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;font-size:14px;line-height:1.6;color:#a9b1bf">
+      <div style="display:flex;flex-direction:column;gap:8px;max-width:640px">
+        <span style="font-size:16px;font-weight:800;color:#ffffff">Tellio</span>
+        <span>Film and TV information and artwork from TMDB. This product uses the TMDB API but is not endorsed or certified by TMDB.</span>
+        <span>Tellio isn't affiliated with Apple, Stremio, TMDB, Trakt or ESPN. Apple TV and tvOS are trademarks of Apple Inc.</span>
+      </div>
+      <div style="display:flex;gap:20px;align-items:flex-start"><a href="https://github.com/MS2620/tellio" style="text-decoration:none">GitHub</a><a href="https://github.com/MS2620/tellio/releases" style="text-decoration:none">Releases</a><a href="https://github.com/MS2620/tellio/issues" style="text-decoration:none">Report a problem</a></div>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
