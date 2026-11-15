@@ -1,6 +1,6 @@
-# StreamBox website
+# Tellio website
 
-The one-page site for [StreamBox](https://github.com/MS2620/streambox), a native Apple TV player for your own Stremio addons and IPTV account.
+The one-page site for [Tellio](https://github.com/MS2620/streambox), a native Apple TV player for your own Stremio addons and IPTV account.
 
 Plain HTML, no build step. Served by GitHub Pages from the `main` branch.
 
