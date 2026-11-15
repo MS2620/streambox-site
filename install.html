@@ -35,12 +35,48 @@ section{scroll-margin-top:20px}
     <div style="max-width:880px;margin:0 auto;padding:40px 24px 60px;display:flex;flex-direction:column;gap:16px">
       <span style="font-size:13px;font-weight:800;letter-spacing:2px;color:#9fb0cf">INSTALL GUIDE</span>
       <h1 style="margin:0;font-size:clamp(2rem, 4.5vw, 3.2rem);font-weight:800;letter-spacing:-0.02em">Install Tellio on your Apple TV</h1>
-      <p style="margin:0;font-size:18px;line-height:1.6;color:#c4cbd8">Tellio isn't on the App Store, so you install it yourself with atvloadly, a free tool that signs apps with your Apple ID and keeps them working. It takes about 20 minutes the first time.</p>
+      <p style="margin:0;font-size:18px;line-height:1.6;color:#c4cbd8">Tellio isn't on the App Store, so you install it yourself. There are two ways: Signulous, a paid service that does it from your phone or computer, or atvloadly, a free tool you run at home.</p>
     </div>
   </header>
   <main style="max-width:880px;margin:0 auto;padding:40px 24px 90px;display:flex;flex-direction:column;gap:20px">
+    <section style="display:grid;grid-template-columns:repeat(auto-fit, minmax(min(18rem, 100%), 1fr));gap:18px">
+      <div style="padding:28px;border-radius:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;gap:10px">
+        <span style="font-size:13px;font-weight:800;letter-spacing:2px;color:#9fb0cf">EASIEST · PAID</span>
+        <h2 style="margin:0;font-size:22px;font-weight:800">Signulous</h2>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#c4cbd8">A signing service, about $16 a year for an Apple TV (check their site for the current price). Upload Tellio and it installs on your Apple TV. No computer needed at home, and it stays signed for a year.</p>
+      </div>
+      <div style="padding:28px;border-radius:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;gap:10px">
+        <span style="font-size:13px;font-weight:800;letter-spacing:2px;color:#9fb0cf">FREE</span>
+        <h2 style="margin:0;font-size:22px;font-weight:800">atvloadly</h2>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#c4cbd8">Runs in Docker on a Linux PC, Raspberry Pi or NAS at home and keeps Tellio signed with your own Apple ID. About 20 minutes to set up the first time.</p>
+      </div>
+    </section>
+    <section style="display:flex;flex-direction:column;gap:8px;padding-top:20px">
+      <h2 style="margin:0;font-size:26px;font-weight:800">Option A: Signulous</h2>
+      <p style="margin:0;font-size:16px;line-height:1.65;color:#c4cbd8">Signulous isn't part of Tellio; it's a separate paid service.</p>
+    </section>
+    <section style="display:grid;grid-template-columns:56px 1fr;gap:20px;padding:28px;border-radius:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)">
+      <span style="width:44px;height:44px;border-radius:50%;background:#ffffff;color:#10131a;font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center">1</span>
+      <div style="display:flex;flex-direction:column;gap:10px;min-width:0"><h2 style="margin:0;font-size:22px;font-weight:800">Register your Apple TV</h2><p style="margin:0;font-size:16px;line-height:1.65;color:#c4cbd8">On <a href="https://www.signulous.com">signulous.com</a>, register a device and choose <b>tvOS Code Signing</b>. They show you how to find your Apple TV's ID (UDID). Registration usually takes under an hour.</p></div>
+    </section>
+    <section style="display:grid;grid-template-columns:56px 1fr;gap:20px;padding:28px;border-radius:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)">
+      <span style="width:44px;height:44px;border-radius:50%;background:#ffffff;color:#10131a;font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center">2</span>
+      <div style="display:flex;flex-direction:column;gap:10px;min-width:0"><h2 style="margin:0;font-size:22px;font-weight:800">Check it's signing for your Apple TV</h2><p style="margin:0;font-size:16px;line-height:1.65;color:#c4cbd8">In the Signulous dashboard, the bar at the top should say <b>Signing for Apple TV</b>. If it names another device, use <b>Link Device</b> to switch.</p></div>
+    </section>
+    <section style="display:grid;grid-template-columns:56px 1fr;gap:20px;padding:28px;border-radius:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)">
+      <span style="width:44px;height:44px;border-radius:50%;background:#ffffff;color:#10131a;font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center">3</span>
+      <div style="display:flex;flex-direction:column;gap:10px;min-width:0"><h2 style="margin:0;font-size:22px;font-weight:800">Upload Tellio</h2><p style="margin:0;font-size:16px;line-height:1.65;color:#c4cbd8">Download <b>Tellio.ipa</b> from the latest build on the <a href="https://github.com/MS2620/tellio/releases">releases page</a>, then choose <b>Upload App</b> in Signulous. Leave every option unticked and the custom identifier empty.</p></div>
+    </section>
+    <section style="display:grid;grid-template-columns:56px 1fr;gap:20px;padding:28px;border-radius:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)">
+      <span style="width:44px;height:44px;border-radius:50%;background:#ffffff;color:#10131a;font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center">4</span>
+      <div style="display:flex;flex-direction:column;gap:10px;min-width:0"><h2 style="margin:0;font-size:22px;font-weight:800">Install and set up</h2><p style="margin:0;font-size:16px;line-height:1.65;color:#c4cbd8">Sign and install it from Signulous; it appears on your Apple TV. Open Tellio and follow the short setup. To update later, upload the new Tellio.ipa the same way and install it over the old one; your settings are kept.</p></div>
+    </section>
+    <section style="display:flex;flex-direction:column;gap:8px;padding-top:20px">
+      <h2 style="margin:0;font-size:26px;font-weight:800">Option B: atvloadly</h2>
+      <p style="margin:0;font-size:16px;line-height:1.65;color:#c4cbd8">Free, but needs a Linux machine at home that stays on.</p>
+    </section>
     <section style="padding:28px;border-radius:24px;background:#ffffff;color:#10131a;display:flex;flex-direction:column;gap:10px">
-      <h2 style="margin:0;font-size:22px;font-weight:800">What you need</h2>
+      <h2 style="margin:0;font-size:22px;font-weight:800">What you need for atvloadly</h2>
       <ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px;font-size:16px;line-height:1.6;color:#2c3240">
         <li>An Apple TV on <b>tvOS 18 or later</b>, on your home network.</li>
         <li>A <b>Linux</b> machine on the same network that runs Docker: a Linux PC, a Raspberry Pi, or a NAS. atvloadly doesn't run on Windows or Mac.</li>
@@ -74,16 +110,16 @@ section{scroll-margin-top:20px}
     </section>
     <section style="display:flex;flex-direction:column;gap:12px;padding-top:20px">
       <h2 style="margin:0;font-size:26px;font-weight:800">Updating</h2>
-      <p style="margin:0;font-size:16px;line-height:1.65;color:#c4cbd8">When a new build is out, Tellio shows a card on launch and Settings › About says so. Download the new Tellio.ipa and install it over the old one in atvloadly. Your settings are kept.</p>
+      <p style="margin:0;font-size:16px;line-height:1.65;color:#c4cbd8">When a new build is out, Tellio shows a card on launch and Settings › About says so. Download the new Tellio.ipa and install it over the old one, in atvloadly or Signulous. Your settings are kept.</p>
       <h2 style="margin:20px 0 0;font-size:26px;font-weight:800">Good to know</h2>
-      <ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="font-size:16px;line-height:1.6;color:#c4cbd8">atvloadly re-signs Tellio automatically, so it keeps working. Leave the Linux machine running.</li><li style="font-size:16px;line-height:1.6;color:#c4cbd8">A free Apple ID can have <b>3</b> sideloaded apps working at once, and register 10 a week.</li><li style="font-size:16px;line-height:1.6;color:#c4cbd8">After a tvOS update you may need to pair the Apple TV with atvloadly again.</li><li style="font-size:16px;line-height:1.6;color:#c4cbd8">To move to another Apple TV, use Settings › Backup &amp; restore if you run a backup server.</li></ul>
+      <ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px"><li style="font-size:16px;line-height:1.6;color:#c4cbd8">With atvloadly: it re-signs Tellio automatically, so it keeps working. Leave the Linux machine running.</li><li style="font-size:16px;line-height:1.6;color:#c4cbd8">A free Apple ID can have <b>3</b> sideloaded apps working at once, and register 10 a week.</li><li style="font-size:16px;line-height:1.6;color:#c4cbd8">After a tvOS update you may need to pair the Apple TV with atvloadly again.</li><li style="font-size:16px;line-height:1.6;color:#c4cbd8">To move to another Apple TV, use Settings › Backup &amp; restore if you run a backup server.</li></ul>
     </section>
     <section style="display:flex;flex-direction:column;gap:12px;padding-top:20px">
       <h2 style="margin:0;font-size:26px;font-weight:800">Troubleshooting</h2>
       <div style="padding:22px 26px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)"><h3 style="margin:0 0 6px;font-size:18px;font-weight:700">The install stays at 100%</h3><p style="margin:0;font-size:16px;line-height:1.6;color:#c4cbd8">Wait two minutes, then check the Apple TV home screen. If it hasn't appeared, wake the Apple TV and install again. If it still sticks, delete Tellio from the Apple TV first.</p></div>
       <div style="padding:22px 26px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)"><h3 style="margin:0 0 6px;font-size:18px;font-weight:700">atvloadly can't find my Apple TV</h3><p style="margin:0;font-size:16px;line-height:1.6;color:#c4cbd8">Make sure both are on the same network and the Apple TV is on the Remote App and Devices screen. atvloadly's page has more tips.</p></div>
       <div style="padding:22px 26px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)"><h3 style="margin:0 0 6px;font-size:18px;font-weight:700">Apple ID sign-in fails</h3><p style="margin:0;font-size:16px;line-height:1.6;color:#c4cbd8">Approve the code on your trusted device quickly. Apple sometimes blocks new sign-ins; trying again later or using another spare Apple ID usually helps.</p></div>
-      <div style="padding:22px 26px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)"><h3 style="margin:0 0 6px;font-size:18px;font-weight:700">The Top Shelf is blank</h3><p style="margin:0;font-size:16px;line-height:1.6;color:#c4cbd8">Delete Tellio and install it again; the Top Shelf part needs a clean install.</p></div>
+      <div style="padding:22px 26px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)"><h3 style="margin:0 0 6px;font-size:18px;font-weight:700">The Top Shelf is blank</h3><p style="margin:0;font-size:16px;line-height:1.6;color:#c4cbd8">Delete Tellio and install it again; the Top Shelf part needs a clean install. With Signulous, make sure Install as duplicate app was left unticked.</p></div>
       <div style="padding:22px 26px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)"><h3 style="margin:0 0 6px;font-size:18px;font-weight:700">Something else</h3><p style="margin:0;font-size:16px;line-height:1.6;color:#c4cbd8">Use Settings › About › Send feedback on the Apple TV, or <a href="https://github.com/MS2620/tellio/issues">open an issue on GitHub</a>.</p></div>
     </section>
   </main>
