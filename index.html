@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
 <title>Tellio · A player for your own addons and IPTV on Apple TV</title>
 <meta name="description" content="Tellio is a free, native Apple TV player for your own Stremio addons and IPTV account, with a TV guide, sports match finder, multiview and more. It includes no channels or streams.">
 <meta property="og:title" content="Tellio for Apple TV">
@@ -14,314 +15,315 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-<style>
-body{margin:0;background:#0f131b}
-html{scroll-behavior:smooth}
-a{color:#ffffff}a:hover{color:#d6dcea}
-a:focus-visible{outline:3px solid #9fb0cf;outline-offset:3px;border-radius:8px}
-section{scroll-margin-top:20px}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+<link rel="preload" as="image" type="image/webp" imagesrcset="screens/home-800.webp 800w, screens/home-1280.webp 1280w, screens/home.webp 1920w" imagesizes="(max-width: 1008px) calc(100vw - 44px), 940px" fetchpriority="high">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div style="min-height:100vh;font-family:Inter, system-ui, sans-serif;color:#ffffff;background:#0f131b">
+<svg class="svg-sprite" aria-hidden="true" focusable="false">
+  <symbol id="icon-film" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"></path></symbol>
+  <symbol id="icon-sports" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7l4 3-1.5 5h-5L8 10z"></path></symbol>
+  <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></symbol>
+  <symbol id="icon-signal" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"></circle><path d="M8.5 15.5a5 5 0 0 1 0-7M15.5 8.5a5 5 0 0 1 0 7M5.6 18.4a9 9 0 0 1 0-12.8M18.4 5.6a9 9 0 0 1 0 12.8"></path></symbol>
+</svg>
+<div id="top" class="page-shell">
+  <a href="#main" class="skip-link">Skip to main content</a>
 
-  <header style="position:relative;overflow:hidden;background:radial-gradient(50rem 36rem at 80% 10%, rgba(158,128,115,0.35), rgba(0,0,0,0)),radial-gradient(46rem 34rem at 5% 0%, rgba(89,128,179,0.45), rgba(0,0,0,0)),#161c27">
-    <nav style="max-width:1200px;margin:0 auto;padding:22px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:20px">
-      <a href="#" aria-label="Tellio home" style="display:flex;align-items:center;gap:12px;text-decoration:none"><img src="logo.png" alt="" width="40" height="40" style="width:40px;height:40px;border-radius:11px;display:block"><img src="wordmark.png" alt="Tellio" height="26" style="height:26px;width:auto;display:block"></a>
-      <span style="flex:1"></span>
-      <div style="display:flex;flex-wrap:wrap;gap:22px;font-size:15px;font-weight:600"><a href="#features" style="text-decoration:none">Features</a><a href="#screens" style="text-decoration:none">Screens</a><a href="#how" style="text-decoration:none">How it works</a><a href="#install" style="text-decoration:none">Install</a><a href="#limits" style="text-decoration:none">Limitations</a><a href="#faq" style="text-decoration:none">FAQ</a></div>
-      <a href="#install" style="padding:12px 22px;border-radius:999px;background:#ffffff;color:#10131a;font-size:15px;font-weight:800;text-decoration:none">Get Tellio</a>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Primary">
+      <a href="#top" aria-label="Tellio home" class="brand-link"><picture><source type="image/webp" srcset="logo-80.webp 80w, logo-120.webp 120w" sizes="40px"><img src="logo.png" alt="" width="40" height="40" decoding="async" class="brand-logo"></picture><picture><source type="image/webp" srcset="wordmark-135.webp 135w, wordmark-202.webp 202w" sizes="67px"><img src="wordmark.png" alt="Tellio" width="67" height="26" decoding="async" class="brand-wordmark"></picture></a>
+      <div class="nav-links"><a href="#features">Features</a><a href="#screens">Screens</a><a href="#how">How it works</a><a href="#install">Install</a><a href="#limits">Limitations</a><a href="#faq">FAQ</a></div>
+      <a href="#install" class="btn btn-nav btn-primary">Get Tellio</a>
     </nav>
-    <div style="max-width:1200px;margin:0 auto;padding:56px 24px 90px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:26px">
-      <span style="display:flex;align-items:center;gap:12px;font-size:13px;font-weight:800;letter-spacing:2px;color:#c9d3e6"><span style="padding:5px 12px;border-radius:999px;background:#ffffff;color:#10131a;letter-spacing:1px">BETA</span>FREE · FOR APPLE TV</span>
-      <h1 style="margin:0;max-width:900px;font-size:clamp(2.4rem, 5.5vw, 4.25rem);line-height:1.05;font-weight:800;letter-spacing:-0.02em">Your addons and IPTV, at home on Apple TV.</h1>
-      <p style="margin:0;max-width:720px;font-size:19px;line-height:1.6;color:#c4cbd8">Tellio is a native tvOS player for your own Stremio addons and IPTV account, with a proper TV guide, a sports match finder, multiview and more. It doesn't include any channels or streams.</p>
-      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px">
-        <a href="#install" style="display:flex;align-items:center;gap:10px;padding:16px 30px;border-radius:999px;background:#ffffff;color:#10131a;font-size:17px;font-weight:800;text-decoration:none"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M6 10l6 6 6-6"></path><path d="M4 20h16"></path></svg>Get Tellio</a>
-        <a href="#how" style="display:flex;align-items:center;gap:10px;padding:16px 30px;border-radius:999px;background:rgba(255,255,255,0.14);font-size:17px;font-weight:700;text-decoration:none">See how it works<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+    <div class="hero">
+      <span class="hero-badge"><span class="badge-pill">BETA</span>FREE · FOR APPLE TV</span>
+      <h1 class="hero-title">Your addons and IPTV, at home on Apple TV.</h1>
+      <p class="hero-lead">Tellio is a native tvOS player for your own Stremio addons and IPTV account, with a proper TV guide, a sports match finder, multiview and more. It doesn't include any channels or streams.</p>
+      <div class="cta-row cta-row--center">
+        <a href="#install" class="btn btn-lg btn-primary"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M6 10l6 6 6-6"></path><path d="M4 20h16"></path></svg>Get Tellio</a>
+        <a href="#how" class="btn btn-lg btn-secondary">See how it works<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
       </div>
-      <div style="width:100%;margin-top:30px"><div style="width:100%;max-width:960px;margin:0 auto;border-radius:18px;padding:10px;background:#05070b;box-shadow:0 40px 90px rgba(0,0,0,0.55)"><img src="screens/home.webp" alt="Tellio Home screen on an Apple TV: a featured film, Continue Watching and My List" width="1920" height="1080" style="display:block;width:100%;height:auto;border-radius:10px"></div></div>
+      <div class="hero-media"><div class="tv-frame"><img src="screens/home.webp" srcset="screens/home-800.webp 800w, screens/home-1280.webp 1280w, screens/home.webp 1920w" sizes="(max-width: 1008px) calc(100vw - 44px), 940px" alt="Tellio Home screen on an Apple TV: a featured film, Continue Watching and My List" width="1920" height="1080" fetchpriority="high"></div></div>
     </div>
   </header>
 
-  <main>
-    <section style="max-width:1200px;margin:0 auto;padding:90px 24px 40px;display:flex;flex-direction:column;gap:30px">
-      <div style="display:flex;flex-direction:column;gap:10px;max-width:700px">
-        <span style="font-size:13px;font-weight:800;letter-spacing:2px;color:#9fb0cf">BRING YOUR OWN</span>
-        <h2 style="margin:0;font-size:clamp(1.8rem, 3.5vw, 2.6rem);font-weight:800;letter-spacing:-0.01em">Three steps and you're watching</h2>
-        <p style="margin:0;font-size:17px;line-height:1.6;color:#b9c0cc">A short setup on first launch walks you through it. Every step can be skipped and changed later.</p>
+  <main id="main" tabindex="-1">
+    <section class="section section--first">
+      <div class="section-header section-header--narrow">
+        <span class="eyebrow">BRING YOUR OWN</span>
+        <h2 class="section-heading">Three steps and you're watching</h2>
+        <p class="section-lead">A short setup on first launch walks you through it. Every step can be skipped and changed later.</p>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(16rem, 1fr));gap:18px">
-        <div style="padding:28px;border-radius:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;gap:12px">
-        <span style="width:40px;height:40px;border-radius:50%;background:#ffffff;color:#10131a;font-weight:800;display:flex;align-items:center;justify-content:center">1</span>
-        <h3 style="margin:0;font-size:20px;font-weight:700">Add your IPTV account</h3>
-        <p style="margin:0;font-size:16px;line-height:1.55;color:#b9c0cc">Your provider's Xtream Codes server, username and password, for Live TV and the guide. Several accounts? Add them all and switch.</p>
-      </div>
-        <div style="padding:28px;border-radius:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;gap:12px">
-        <span style="width:40px;height:40px;border-radius:50%;background:#ffffff;color:#10131a;font-weight:800;display:flex;align-items:center;justify-content:center">2</span>
-        <h3 style="margin:0;font-size:20px;font-weight:700">Add your Stremio addons</h3>
-        <p style="margin:0;font-size:16px;line-height:1.55;color:#b9c0cc">Paste an addon's manifest link. Films and series play from whatever your addons offer.</p>
-      </div>
-        <div style="padding:28px;border-radius:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;gap:12px">
-        <span style="width:40px;height:40px;border-radius:50%;background:#ffffff;color:#10131a;font-weight:800;display:flex;align-items:center;justify-content:center">3</span>
-        <h3 style="margin:0;font-size:20px;font-weight:700">Follow your teams</h3>
-        <p style="margin:0;font-size:16px;line-height:1.55;color:#b9c0cc">Pick the teams you care about for live scores, fixtures and finding the channel that's showing them.</p>
-      </div>
-      </div>
-      <p style="margin:0;font-size:15px;color:#b9c0cc">Film and TV artwork and details come built in, and Trakt sign-in takes a single code. No API keys to find.</p>
+      <ol class="grid-cards step-list">
+        <li class="card">
+          <span class="step-badge" aria-hidden="true">1</span>
+          <h3 class="card-title">Add your IPTV account</h3>
+          <p class="card-body">Your provider's Xtream Codes server, username and password, for Live TV and the guide. Several accounts? Add them all and switch.</p>
+        </li>
+        <li class="card">
+          <span class="step-badge" aria-hidden="true">2</span>
+          <h3 class="card-title">Add your Stremio addons</h3>
+          <p class="card-body">Paste an addon's manifest link. Films and series play from whatever your addons offer.</p>
+        </li>
+        <li class="card">
+          <span class="step-badge" aria-hidden="true">3</span>
+          <h3 class="card-title">Follow your teams</h3>
+          <p class="card-body">Pick the teams you care about for live scores, fixtures and finding the channel that's showing them.</p>
+        </li>
+      </ol>
+      <p class="section-note">Film and TV artwork and details come built in, and Trakt sign-in takes a single code. No API keys to find.</p>
     </section>
 
-    <section id="features" style="max-width:1200px;margin:0 auto;padding:70px 24px;display:flex;flex-direction:column;gap:30px">
-      <div style="display:flex;flex-direction:column;gap:10px;max-width:700px">
-        <span style="font-size:13px;font-weight:800;letter-spacing:2px;color:#9fb0cf">FEATURES</span>
-        <h2 style="margin:0;font-size:clamp(1.8rem, 3.5vw, 2.6rem);font-weight:800;letter-spacing:-0.01em">Made for the TV, and the remote</h2>
+    <section id="features" class="section">
+      <div class="section-header section-header--narrow">
+        <span class="eyebrow">FEATURES</span>
+        <h2 class="section-heading">Made for the TV, and the remote</h2>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(16rem, 1fr));gap:18px">
-        <article style="padding:28px;border-radius:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;gap:12px">
-        <span style="width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#ffffff"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"></path></svg></span>
-        <h3 style="margin:0;font-size:20px;font-weight:700">Films &amp; series</h3>
-        <p style="margin:0;font-size:16px;line-height:1.55;color:#b9c0cc">Browse trending, popular and new titles, with seasons, episodes and cast. Pick a stream from your addons, filtered by quality.</p>
-      </article>
-        <article style="padding:28px;border-radius:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;gap:12px">
-        <span style="width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#ffffff"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="13" rx="2"></rect><path d="M8 21h8M12 18v3"></path></svg></span>
-        <h3 style="margin:0;font-size:20px;font-weight:700">Live TV with a real guide</h3>
-        <p style="margin:0;font-size:16px;line-height:1.55;color:#b9c0cc">A full programme guide, favourites, folders, recent channels, channel search and a last-channel button.</p>
-      </article>
-        <article style="padding:28px;border-radius:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;gap:12px">
-        <span style="width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#ffffff"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7l4 3-1.5 5h-5L8 10z"></path></svg></span>
-        <h3 style="margin:0;font-size:20px;font-weight:700">Sports</h3>
-        <p style="margin:0;font-size:16px;line-height:1.55;color:#b9c0cc">Your teams' fixtures, live scores, league tables and F1 standings. Tellio searches your guide for the channel showing the match.</p>
-      </article>
-        <article style="padding:28px;border-radius:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;gap:12px">
-        <span style="width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#ffffff"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1.5"></rect><rect x="13" y="3" width="8" height="8" rx="1.5"></rect><rect x="3" y="13" width="8" height="8" rx="1.5"></rect><rect x="13" y="13" width="8" height="8" rx="1.5"></rect></svg></span>
-        <h3 style="margin:0;font-size:20px;font-weight:700">Multiview</h3>
-        <p style="margin:0;font-size:16px;line-height:1.55;color:#b9c0cc">Watch up to four live channels at once. The sound follows whichever one is highlighted.</p>
-      </article>
-        <article style="padding:28px;border-radius:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;gap:12px">
-        <span style="width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#ffffff"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span>
-        <h3 style="margin:0;font-size:20px;font-weight:700">Continue Watching</h3>
-        <p style="margin:0;font-size:16px;line-height:1.55;color:#b9c0cc">Pick up where you left off, see the next episode, and mark things watched. Syncs with Trakt if you use it.</p>
-      </article>
-        <article style="padding:28px;border-radius:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;gap:12px">
-        <span style="width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#ffffff"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 8 3 8H3s3-1 3-8"></path><path d="M10 20a2 2 0 0 0 4 0"></path></svg></span>
-        <h3 style="margin:0;font-size:20px;font-weight:700">Programme reminders</h3>
-        <p style="margin:0;font-size:16px;line-height:1.55;color:#b9c0cc">Set a reminder from the guide and a card pops up when it starts, even over what you're watching.</p>
-      </article>
-        <article style="padding:28px;border-radius:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;gap:12px">
-        <span style="width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#ffffff"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="6" rx="1.5"></rect><rect x="3" y="13" width="8" height="7" rx="1.5"></rect><rect x="13" y="13" width="8" height="7" rx="1.5"></rect></svg></span>
-        <h3 style="margin:0;font-size:20px;font-weight:700">Top Shelf</h3>
-        <p style="margin:0;font-size:16px;line-height:1.55;color:#b9c0cc">Live games, Continue Watching and what's coming up, right on the Apple TV home screen.</p>
-      </article>
-        <article style="padding:28px;border-radius:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;gap:12px">
-        <span style="width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#ffffff"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></span>
-        <h3 style="margin:0;font-size:20px;font-weight:700">Parental PIN</h3>
-        <p style="margin:0;font-size:16px;line-height:1.55;color:#b9c0cc">Lock Live TV groups and addons behind a 4-digit PIN, or hide them completely.</p>
-      </article>
-        <article style="padding:28px;border-radius:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;gap:12px">
-        <span style="width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#ffffff"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14c2.2.7 3.5 2.8 3.5 6"></path></svg></span>
-        <h3 style="margin:0;font-size:20px;font-weight:700">Several IPTV accounts</h3>
-        <p style="margin:0;font-size:16px;line-height:1.55;color:#b9c0cc">Keep more than one provider and switch from the Live TV sidebar. Favourites and folders stay with each account.</p>
-      </article>
-        <article style="padding:28px;border-radius:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;gap:12px">
-        <span style="width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#ffffff"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a5 5 0 1 1 1-9.9A6 6 0 0 1 19 10a4 4 0 0 1-1 8z"></path><path d="M12 12v6M9.5 15.5L12 18l2.5-2.5"></path></svg></span>
-        <h3 style="margin:0;font-size:20px;font-weight:700">Backup &amp; restore</h3>
-        <p style="margin:0;font-size:16px;line-height:1.55;color:#b9c0cc">Back up everything to your own server, encrypted on the Apple TV, and restore it on another with an 8-character code.</p>
-      </article>
-        <article style="padding:28px;border-radius:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;gap:12px">
-        <span style="width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#ffffff"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="8" cy="10" r="1.2"></circle><circle cx="12" cy="7.5" r="1.2"></circle><circle cx="16" cy="10" r="1.2"></circle><path d="M12 21a2 2 0 0 1 0-4h2a3 3 0 0 0 3-3"></path></svg></span>
-        <h3 style="margin:0;font-size:20px;font-weight:700">Appearances</h3>
-        <p style="margin:0;font-size:16px;line-height:1.55;color:#b9c0cc">Eight backgrounds, from Frosted and Ocean to pure Black for OLED TVs.</p>
-      </article>
-        <article style="padding:28px;border-radius:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;gap:12px">
-        <span style="width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#ffffff"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"></circle><path d="M8.5 15.5a5 5 0 0 1 0-7M15.5 8.5a5 5 0 0 1 0 7M5.6 18.4a9 9 0 0 1 0-12.8M18.4 5.6a9 9 0 0 1 0 12.8"></path></svg></span>
-        <h3 style="margin:0;font-size:20px;font-weight:700">Plays almost anything</h3>
-        <p style="margin:0;font-size:16px;line-height:1.55;color:#b9c0cc">A built-in player engine handles common video and audio formats, subtitles from your addons, and live streams.</p>
-      </article>
+      <div class="grid-cards">
+        <article class="card">
+          <span class="icon-tile"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-film"></use></svg></span>
+          <h3 class="card-title">Films &amp; series</h3>
+          <p class="card-body">Browse trending, popular and new titles, with seasons, episodes and cast. Pick a stream from your addons, filtered by quality.</p>
+        </article>
+        <article class="card">
+          <span class="icon-tile"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="13" rx="2"></rect><path d="M8 21h8M12 18v3"></path></svg></span>
+          <h3 class="card-title">Live TV with a real guide</h3>
+          <p class="card-body">A full programme guide, favourites, folders, recent channels, channel search and a last-channel button.</p>
+        </article>
+        <article class="card">
+          <span class="icon-tile"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-sports"></use></svg></span>
+          <h3 class="card-title">Sports</h3>
+          <p class="card-body">Your teams' fixtures, live scores, league tables and F1 standings. Tellio searches your guide for the channel showing the match.</p>
+        </article>
+        <article class="card">
+          <span class="icon-tile"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1.5"></rect><rect x="13" y="3" width="8" height="8" rx="1.5"></rect><rect x="3" y="13" width="8" height="8" rx="1.5"></rect><rect x="13" y="13" width="8" height="8" rx="1.5"></rect></svg></span>
+          <h3 class="card-title">Multiview</h3>
+          <p class="card-body">Watch up to four live channels at once. The sound follows whichever one is highlighted.</p>
+        </article>
+        <article class="card">
+          <span class="icon-tile"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-clock"></use></svg></span>
+          <h3 class="card-title">Continue Watching</h3>
+          <p class="card-body">Pick up where you left off, see the next episode, and mark things watched. Syncs with Trakt if you use it.</p>
+        </article>
+        <article class="card">
+          <span class="icon-tile"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 8 3 8H3s3-1 3-8"></path><path d="M10 20a2 2 0 0 0 4 0"></path></svg></span>
+          <h3 class="card-title">Programme reminders</h3>
+          <p class="card-body">Set a reminder from the guide and a card pops up when it starts, even over what you're watching.</p>
+        </article>
+        <article class="card">
+          <span class="icon-tile"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="6" rx="1.5"></rect><rect x="3" y="13" width="8" height="7" rx="1.5"></rect><rect x="13" y="13" width="8" height="7" rx="1.5"></rect></svg></span>
+          <h3 class="card-title">Top Shelf</h3>
+          <p class="card-body">Live games, Continue Watching and what's coming up, right on the Apple TV home screen.</p>
+        </article>
+        <article class="card">
+          <span class="icon-tile"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></span>
+          <h3 class="card-title">Parental PIN</h3>
+          <p class="card-body">Lock Live TV groups and addons behind a 4-digit PIN, or hide them completely.</p>
+        </article>
+        <article class="card">
+          <span class="icon-tile"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14c2.2.7 3.5 2.8 3.5 6"></path></svg></span>
+          <h3 class="card-title">Several IPTV accounts</h3>
+          <p class="card-body">Keep more than one provider and switch from the Live TV sidebar. Favourites and folders stay with each account.</p>
+        </article>
+        <article class="card">
+          <span class="icon-tile"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a5 5 0 1 1 1-9.9A6 6 0 0 1 19 10a4 4 0 0 1-1 8z"></path><path d="M12 12v6M9.5 15.5L12 18l2.5-2.5"></path></svg></span>
+          <h3 class="card-title">Backup &amp; restore</h3>
+          <p class="card-body">Back up everything to your own server, encrypted on the Apple TV, and restore it on another with an 8-character code.</p>
+        </article>
+        <article class="card">
+          <span class="icon-tile"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="8" cy="10" r="1.2"></circle><circle cx="12" cy="7.5" r="1.2"></circle><circle cx="16" cy="10" r="1.2"></circle><path d="M12 21a2 2 0 0 1 0-4h2a3 3 0 0 0 3-3"></path></svg></span>
+          <h3 class="card-title">Appearances</h3>
+          <p class="card-body">Eight backgrounds, from Frosted and Ocean to pure Black for OLED TVs.</p>
+        </article>
+        <article class="card">
+          <span class="icon-tile"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-signal"></use></svg></span>
+          <h3 class="card-title">Plays almost anything</h3>
+          <p class="card-body">A built-in player engine handles common video and audio formats, subtitles from your addons, and live streams.</p>
+        </article>
       </div>
     </section>
 
-    <section style="max-width:1200px;margin:0 auto;padding:40px 24px 70px;display:grid;grid-template-columns:repeat(auto-fit, minmax(20rem, 1fr));gap:40px;align-items:center">
-      <div style="display:flex;flex-direction:column;gap:14px">
-        <span style="font-size:13px;font-weight:800;letter-spacing:2px;color:#9fb0cf">SPORTS</span>
-        <h2 style="margin:0;font-size:clamp(1.6rem, 3vw, 2.2rem);font-weight:800">Finds the match on your channels</h2>
-        <p style="margin:0;font-size:17px;line-height:1.6;color:#b9c0cc">Select a game and Tellio checks every channel in your provider's guide at kick-off, in many languages, then lists the best matches first. Live scores update while it's on.</p>
+    <section class="section-split">
+      <div class="split-copy">
+        <span class="eyebrow">SPORTS</span>
+        <h2 class="split-heading">Finds the match on your channels</h2>
+        <p class="section-lead">Select a game and Tellio checks every channel in your provider's guide at kick-off, in many languages, then lists the best matches first. Live scores update while it's on.</p>
       </div>
-      <div role="img" aria-label="Match page: two team badges, a live score and the channels showing the game" style="border-radius:20px;padding:24px;background:#1a202c;border:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;gap:18px">
-        <div style="display:flex;align-items:center;justify-content:center;gap:24px">
-          <span style="width:64px;height:64px;border-radius:50%;background:linear-gradient(150deg,#3d6fb5,#22406b)"></span>
-          <span style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="font-size:34px;font-weight:800">2 – 1</span><span style="font-size:12px;font-weight:800;padding:3px 10px;border-radius:999px;background:#ff5a5a;color:#10131a">LIVE 67'</span></span>
-          <span style="width:64px;height:64px;border-radius:50%;background:linear-gradient(150deg,#c0453f,#6b221f)"></span>
+      <div role="img" aria-label="Match page: two team badges, a live score and the channels showing the game" class="match-card">
+        <div class="match-scoreboard">
+          <span class="team-crest team-crest--home"></span>
+          <span class="match-score-group"><span class="match-score">2 – 1</span><span class="live-pill">LIVE 67'</span></span>
+          <span class="team-crest team-crest--away"></span>
         </div>
-        <div style="font-size:13px;font-weight:700;letter-spacing:1px;color:rgba(255,255,255,0.6)">ON YOUR CHANNELS</div>
-        <div style="display:flex;flex-direction:column;gap:6px">
-          <div style="display:flex;justify-content:space-between;padding:10px 14px;border-radius:10px;background:#ffffff;color:#10131a;font-size:14px;font-weight:700"><span>Sports 1 HD</span><span>Both teams named</span></div>
-          <div style="display:flex;justify-content:space-between;padding:10px 14px;border-radius:10px;background:rgba(255,255,255,0.1);font-size:14px;font-weight:600"><span>Sport Extra</span><span style="color:#b9c0cc">One team + competition</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section style="max-width:1200px;margin:0 auto;padding:40px 24px 70px;display:grid;grid-template-columns:repeat(auto-fit, minmax(20rem, 1fr));gap:40px;align-items:center">
-      <img src="screens/guide.webp" alt="The Live TV guide: groups on the left, channels and programmes on a timeline (channel details blurred)" width="1920" height="1080" loading="lazy" style="display:block;width:100%;height:auto;border-radius:16px;box-shadow:0 24px 60px rgba(0,0,0,0.45)">
-      <div style="display:flex;flex-direction:column;gap:14px">
-        <span style="font-size:13px;font-weight:800;letter-spacing:2px;color:#9fb0cf">LIVE TV</span>
-        <h2 style="margin:0;font-size:clamp(1.6rem, 3vw, 2.2rem);font-weight:800">A guide that feels like TV</h2>
-        <p style="margin:0;font-size:17px;line-height:1.6;color:#b9c0cc">Scroll channels and programmes on a timeline, preview what's on, set reminders, and hide the groups you never watch.</p>
-      </div>
-    </section>
-
-    <section id="screens" style="max-width:1200px;margin:0 auto;padding:70px 24px;display:flex;flex-direction:column;gap:30px">
-      <div style="display:flex;flex-direction:column;gap:10px;max-width:760px">
-        <span style="font-size:13px;font-weight:800;letter-spacing:2px;color:#9fb0cf">A CLOSER LOOK</span>
-        <h2 style="margin:0;font-size:clamp(1.8rem, 3.5vw, 2.6rem);font-weight:800;letter-spacing:-0.01em">Straight from the Apple TV</h2>
-        <p style="margin:0;font-size:17px;line-height:1.6;color:#b9c0cc">Real screenshots, taken on an Apple TV 4K.</p>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(min(22rem, 100%), 1fr));gap:28px">
-        <figure style="margin:0;display:flex;flex-direction:column;gap:12px">
-          <img src="screens/movies.webp" alt="Tellio Movies screen" width="1920" height="1080" loading="lazy" style="display:block;width:100%;height:auto;border-radius:14px;box-shadow:0 20px 50px rgba(0,0,0,0.4)">
-          <figcaption style="display:flex;flex-direction:column;gap:4px"><span style="font-size:17px;font-weight:700">Movies</span><span style="font-size:15px;color:#b9c0cc">Trending and popular films, with the featured title's artwork behind.</span></figcaption>
-        </figure>
-        <figure style="margin:0;display:flex;flex-direction:column;gap:12px">
-          <img src="screens/series.webp" alt="Tellio Series screen" width="1920" height="1080" loading="lazy" style="display:block;width:100%;height:auto;border-radius:14px;box-shadow:0 20px 50px rgba(0,0,0,0.4)">
-          <figcaption style="display:flex;flex-direction:column;gap:4px"><span style="font-size:17px;font-weight:700">Series</span><span style="font-size:15px;color:#b9c0cc">Your shows, with My List and what's new.</span></figcaption>
-        </figure>
-        <figure style="margin:0;display:flex;flex-direction:column;gap:12px">
-          <img src="screens/calendar.webp" alt="Tellio Calendar screen" width="1920" height="1080" loading="lazy" style="display:block;width:100%;height:auto;border-radius:14px;box-shadow:0 20px 50px rgba(0,0,0,0.4)">
-          <figcaption style="display:flex;flex-direction:column;gap:4px"><span style="font-size:17px;font-weight:700">Calendar</span><span style="font-size:15px;color:#b9c0cc">New episodes coming up from the series in your list.</span></figcaption>
-        </figure>
-        <figure style="margin:0;display:flex;flex-direction:column;gap:12px">
-          <img src="screens/search.webp" alt="Tellio Search screen" width="1920" height="1080" loading="lazy" style="display:block;width:100%;height:auto;border-radius:14px;box-shadow:0 20px 50px rgba(0,0,0,0.4)">
-          <figcaption style="display:flex;flex-direction:column;gap:4px"><span style="font-size:17px;font-weight:700">Search</span><span style="font-size:15px;color:#b9c0cc">Find films, series and channels with the on-screen keyboard.</span></figcaption>
-        </figure>
-        <figure style="margin:0;display:flex;flex-direction:column;gap:12px">
-          <img src="screens/settings.webp" alt="Tellio Settings screen" width="1920" height="1080" loading="lazy" style="display:block;width:100%;height:auto;border-radius:14px;box-shadow:0 20px 50px rgba(0,0,0,0.4)">
-          <figcaption style="display:flex;flex-direction:column;gap:4px"><span style="font-size:17px;font-weight:700">Settings</span><span style="font-size:15px;color:#b9c0cc">Everything in one place, from connections to appearance.</span></figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section id="how" style="max-width:1200px;margin:0 auto;padding:70px 24px;display:flex;flex-direction:column;gap:30px">
-      <div style="display:flex;flex-direction:column;gap:10px;max-width:760px">
-        <span style="font-size:13px;font-weight:800;letter-spacing:2px;color:#9fb0cf">HOW IT WORKS</span>
-        <h2 style="margin:0;font-size:clamp(1.8rem, 3.5vw, 2.6rem);font-weight:800;letter-spacing:-0.01em">Tellio is the player. The content is yours.</h2>
-        <p style="margin:0;font-size:17px;line-height:1.6;color:#b9c0cc">Tellio has no servers that stream video and no catalogue of its own. It plays what your IPTV provider and your addons give it, and adds information from public services.</p>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(17rem, 1fr));gap:18px;align-items:center">
-        <div style="display:flex;flex-direction:column;gap:12px">
-          <span style="font-size:13px;font-weight:800;letter-spacing:1px;color:#9fb0cf">WHAT YOU BRING</span>
-          <div style="padding:22px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;gap:14px"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"></circle><path d="M8.5 15.5a5 5 0 0 1 0-7M15.5 8.5a5 5 0 0 1 0 7M5.6 18.4a9 9 0 0 1 0-12.8M18.4 5.6a9 9 0 0 1 0 12.8"></path></svg><span style="display:flex;flex-direction:column;gap:4px"><span style="font-size:17px;font-weight:800">Your IPTV provider</span><span style="font-size:14px;color:#b9c0cc">Live channels and the guide</span></span></div>
-          <div style="padding:22px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;gap:14px"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3h4v4h4v4h-2a2 2 0 0 0 0 4h2v6H4v-6h2a2 2 0 0 0 0-4H4V7h6z"></path></svg><span style="display:flex;flex-direction:column;gap:4px"><span style="font-size:17px;font-weight:800">Your Stremio addons</span><span style="font-size:14px;color:#b9c0cc">Streams for films and series</span></span></div>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:12px">
-          <span style="font-size:13px;font-weight:800;letter-spacing:1px;color:#9fb0cf">ON YOUR APPLE TV</span>
-          <div style="padding:22px;border-radius:20px;background:#ffffff;color:#10131a;display:flex;align-items:center;gap:14px"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="7 4 20 12 7 20 7 4"></polygon></svg><span style="display:flex;flex-direction:column;gap:4px"><span style="font-size:17px;font-weight:800">Tellio</span><span style="font-size:14px;color:#3e4452">Browses, plays and remembers where you were</span></span></div>
-          <div style="padding:22px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;gap:14px"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path></svg><span style="display:flex;flex-direction:column;gap:4px"><span style="font-size:17px;font-weight:800">Your logins stay here</span><span style="font-size:14px;color:#b9c0cc">Kept in the Apple TV's Keychain, never sent to us</span></span></div>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:12px">
-          <span style="font-size:13px;font-weight:800;letter-spacing:1px;color:#9fb0cf">ADDED INFORMATION</span>
-          <div style="padding:22px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;gap:14px"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"></path></svg><span style="display:flex;flex-direction:column;gap:4px"><span style="font-size:17px;font-weight:800">TMDB</span><span style="font-size:14px;color:#b9c0cc">Artwork, descriptions and cast</span></span></div>
-          <div style="padding:22px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;gap:14px"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7l4 3-1.5 5h-5L8 10z"></path></svg><span style="display:flex;flex-direction:column;gap:4px"><span style="font-size:17px;font-weight:800">ESPN &amp; Jolpica</span><span style="font-size:14px;color:#b9c0cc">Fixtures, scores and tables</span></span></div>
-          <div style="padding:22px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;gap:14px"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span style="display:flex;flex-direction:column;gap:4px"><span style="font-size:17px;font-weight:800">Trakt (optional)</span><span style="font-size:14px;color:#b9c0cc">Sync what you've watched</span></span></div>
+        <div class="match-label">ON YOUR CHANNELS</div>
+        <div class="match-channels">
+          <div class="match-row match-row--best"><span>Sports 1 HD</span><span>Both teams named</span></div>
+          <div class="match-row match-row--alt"><span>Sport Extra</span><span class="match-row-meta">One team + competition</span></div>
         </div>
       </div>
     </section>
 
-    <section id="install" style="max-width:1200px;margin:0 auto;padding:70px 24px;display:flex;flex-direction:column;gap:30px">
-      <div style="display:flex;flex-direction:column;gap:10px;max-width:760px">
-        <span style="font-size:13px;font-weight:800;letter-spacing:2px;color:#9fb0cf">INSTALL</span>
-        <h2 style="margin:0;font-size:clamp(1.8rem, 3.5vw, 2.6rem);font-weight:800;letter-spacing:-0.01em">Get Tellio on your Apple TV</h2>
-        <p style="margin:0;font-size:17px;line-height:1.6;color:#b9c0cc">Tellio isn't on the App Store yet, so for now you install it yourself, with a signing service or a free sideloading tool. It needs tvOS 18 or later.</p>
+    <section class="section-split section-split--media-first">
+      <div class="split-copy">
+        <span class="eyebrow">LIVE TV</span>
+        <h2 class="split-heading">A guide that feels like TV</h2>
+        <p class="section-lead">Scroll channels and programmes on a timeline, preview what's on, set reminders, and hide the groups you never watch.</p>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(16rem, 1fr));gap:18px">
-        <div style="padding:28px;border-radius:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;gap:12px">
-        <span style="width:40px;height:40px;border-radius:50%;background:#ffffff;color:#10131a;font-weight:800;display:flex;align-items:center;justify-content:center">1</span>
-        <h3 style="margin:0;font-size:20px;font-weight:700">Download the latest build</h3>
-        <p style="margin:0;font-size:16px;line-height:1.55;color:#b9c0cc">Get Tellio.ipa from the GitHub releases page. Every build is listed with what changed.</p>
+      <img src="screens/guide.webp" srcset="screens/guide-800.webp 800w, screens/guide-1280.webp 1280w, screens/guide.webp 1920w" sizes="(max-width: 767px) calc(100vw - 32px), (max-width: 1200px) calc(50vw - 44px), 556px" alt="The Live TV guide: groups on the left, channels and programmes on a timeline (channel details blurred)" width="1920" height="1080" loading="lazy" decoding="async" class="screen-shot">
+    </section>
+
+    <section id="screens" class="section section--deferred">
+      <div class="section-header">
+        <span class="eyebrow">A CLOSER LOOK</span>
+        <h2 class="section-heading">Straight from the Apple TV</h2>
+        <p class="section-lead">Real screenshots, taken on an Apple TV 4K.</p>
       </div>
-        <div style="padding:28px;border-radius:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;gap:12px">
-        <span style="width:40px;height:40px;border-radius:50%;background:#ffffff;color:#10131a;font-weight:800;display:flex;align-items:center;justify-content:center">2</span>
-        <h3 style="margin:0;font-size:20px;font-weight:700">Sideload it</h3>
-        <p style="margin:0;font-size:16px;line-height:1.55;color:#b9c0cc">Install it with Signulous, a paid service that needs no computer, or for free with atvloadly on a Linux machine at home.</p>
-      </div>
-        <div style="padding:28px;border-radius:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;gap:12px">
-        <span style="width:40px;height:40px;border-radius:50%;background:#ffffff;color:#10131a;font-weight:800;display:flex;align-items:center;justify-content:center">3</span>
-        <h3 style="margin:0;font-size:20px;font-weight:700">Open and set up</h3>
-        <p style="margin:0;font-size:16px;line-height:1.55;color:#b9c0cc">Follow the short setup. Tellio tells you when a newer build is out.</p>
-      </div>
-      </div>
-      <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center">
-        <a href="https://github.com/MS2620/tellio/releases" style="display:flex;align-items:center;gap:10px;padding:16px 28px;border-radius:999px;background:#ffffff;color:#10131a;font-size:17px;font-weight:800;text-decoration:none"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4 1.3-4-2-6-2.5M15 21v-3.5a3 3 0 0 0-.9-2.3c3-.3 6-1.5 6-6.6a5 5 0 0 0-1.4-3.6 4.7 4.7 0 0 0-.1-3.5s-1.1-.3-3.6 1.4a12.4 12.4 0 0 0-6.5 0C6 1.2 4.9 1.5 4.9 1.5a4.7 4.7 0 0 0-.1 3.5A5 5 0 0 0 3.4 8.6c0 5.1 3 6.3 6 6.6a3 3 0 0 0-.9 2.3V21"></path></svg>Download from GitHub</a>
-        <a href="install.html" style="display:flex;align-items:center;gap:10px;padding:16px 28px;border-radius:999px;background:rgba(255,255,255,0.14);font-size:17px;font-weight:700;text-decoration:none">Full install guide</a>
+      <div class="grid-screens">
+        <figure class="screen-figure">
+          <img src="screens/movies.webp" srcset="screens/movies-800.webp 800w, screens/movies-1280.webp 1280w, screens/movies.webp 1920w" sizes="(max-width: 779px) calc(100vw - 32px), (max-width: 1139px) calc(50vw - 38px), 365px" alt="Tellio Movies screen on Apple TV: featured film artwork with year, genres, rating and a numbered Trending Movies poster row below" width="1920" height="1080" loading="lazy" decoding="async">
+          <figcaption class="screen-caption"><span class="screen-caption-title">Movies</span><span class="screen-caption-text">Trending and popular films, with the featured title's artwork behind.</span></figcaption>
+        </figure>
+        <figure class="screen-figure">
+          <img src="screens/series.webp" srcset="screens/series-800.webp 800w, screens/series-1280.webp 1280w, screens/series.webp 1920w" sizes="(max-width: 779px) calc(100vw - 32px), (max-width: 1139px) calc(50vw - 38px), 365px" alt="Tellio Series screen on Apple TV: featured show backdrop with synopsis and a My List poster row below" width="1920" height="1080" loading="lazy" decoding="async">
+          <figcaption class="screen-caption"><span class="screen-caption-title">Series</span><span class="screen-caption-text">Your shows, with My List and what's new.</span></figcaption>
+        </figure>
+        <figure class="screen-figure">
+          <img src="screens/calendar.webp" srcset="screens/calendar-800.webp 800w, screens/calendar-1280.webp 1280w, screens/calendar.webp 1920w" sizes="(max-width: 779px) calc(100vw - 32px), (max-width: 1139px) calc(50vw - 38px), 365px" alt="Tellio Calendar screen on Apple TV: upcoming episodes row showing landscape artwork, season and episode numbers, and air dates" width="1920" height="1080" loading="lazy" decoding="async">
+          <figcaption class="screen-caption"><span class="screen-caption-title">Calendar</span><span class="screen-caption-text">New episodes coming up from the series in your list.</span></figcaption>
+        </figure>
+        <figure class="screen-figure">
+          <img src="screens/search.webp" srcset="screens/search-800.webp 800w, screens/search-1280.webp 1280w, screens/search.webp 1920w" sizes="(max-width: 779px) calc(100vw - 32px), (max-width: 1139px) calc(50vw - 38px), 365px" alt="Tellio Search screen on Apple TV: on-screen letter and number keypad on the left, with Trending Movies and Trending Series rows on the right" width="1920" height="1080" loading="lazy" decoding="async">
+          <figcaption class="screen-caption"><span class="screen-caption-title">Search</span><span class="screen-caption-text">Find films, series and channels with the on-screen keyboard.</span></figcaption>
+        </figure>
+        <figure class="screen-figure">
+          <img src="screens/settings.webp" srcset="screens/settings-800.webp 800w, screens/settings-1280.webp 1280w, screens/settings.webp 1920w" sizes="(max-width: 779px) calc(100vw - 32px), (max-width: 1139px) calc(50vw - 38px), 365px" alt="Tellio Settings screen on Apple TV: grouped frosted cards for Media (Connections, Live TV &amp; Guide, Content, Streams), Playback and Personalise" width="1920" height="1080" loading="lazy" decoding="async">
+          <figcaption class="screen-caption"><span class="screen-caption-title">Settings</span><span class="screen-caption-text">Everything in one place, from connections to appearance.</span></figcaption>
+        </figure>
       </div>
     </section>
 
-    <section id="limits" style="max-width:1200px;margin:0 auto;padding:40px 24px 30px;display:grid;grid-template-columns:repeat(auto-fit, minmax(min(24rem, 100%), 1fr));gap:24px">
-      <div style="padding:30px;border-radius:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;gap:16px">
-        <span style="font-size:13px;font-weight:800;letter-spacing:2px;color:#9fb0cf">KNOWN LIMITATIONS</span>
-        <h2 style="margin:0;font-size:26px;font-weight:800">It's a beta</h2>
-        <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px">
-          <li style="display:flex;gap:12px;font-size:16px;line-height:1.55;color:#c4cbd8"><span style="flex:none;width:8px;height:8px;margin-top:9px;border-radius:50%;background:#9fb0cf"></span><span>IPTV must use Xtream Codes logins. M3U playlist links aren't supported yet.</span></li>
-          <li style="display:flex;gap:12px;font-size:16px;line-height:1.55;color:#c4cbd8"><span style="flex:none;width:8px;height:8px;margin-top:9px;border-radius:50%;background:#9fb0cf"></span><span>Needs tvOS 18 or later.</span></li>
-          <li style="display:flex;gap:12px;font-size:16px;line-height:1.55;color:#c4cbd8"><span style="flex:none;width:8px;height:8px;margin-top:9px;border-radius:50%;background:#9fb0cf"></span><span>Installing needs a signing service (Signulous) or atvloadly on a Linux machine at home. There's no App Store or TestFlight version yet.</span></li>
-          <li style="display:flex;gap:12px;font-size:16px;line-height:1.55;color:#c4cbd8"><span style="flex:none;width:8px;height:8px;margin-top:9px;border-radius:50%;background:#9fb0cf"></span><span>Backup &amp; restore needs a backup server you run yourself.</span></li>
-          <li style="display:flex;gap:12px;font-size:16px;line-height:1.55;color:#c4cbd8"><span style="flex:none;width:8px;height:8px;margin-top:9px;border-radius:50%;background:#9fb0cf"></span><span>The Top Shelf can stay blank after an install; reinstalling usually fixes it.</span></li>
-          <li style="display:flex;gap:12px;font-size:16px;line-height:1.55;color:#c4cbd8"><span style="flex:none;width:8px;height:8px;margin-top:9px;border-radius:50%;background:#9fb0cf"></span><span>Tested with a small number of providers and addons so far. Expect rough edges, and please report them.</span></li>
+    <section id="how" class="section section--deferred">
+      <div class="section-header">
+        <span class="eyebrow">HOW IT WORKS</span>
+        <h2 class="section-heading">Tellio is the player. The content is yours.</h2>
+        <p class="section-lead">Tellio has no servers that stream video and no catalogue of its own. It plays what your IPTV provider and your addons give it, and adds information from public services.</p>
+      </div>
+      <div class="grid-how">
+        <div class="flow-column">
+          <span class="eyebrow eyebrow--tight">WHAT YOU BRING</span>
+          <div class="flow-node"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-signal"></use></svg><span class="flow-node-copy"><span class="flow-node-title">Your IPTV provider</span><span class="flow-node-sub">Live channels and the guide</span></span></div>
+          <div class="flow-node"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3h4v4h4v4h-2a2 2 0 0 0 0 4h2v6H4v-6h2a2 2 0 0 0 0-4H4V7h6z"></path></svg><span class="flow-node-copy"><span class="flow-node-title">Your Stremio addons</span><span class="flow-node-sub">Streams for films and series</span></span></div>
+        </div>
+        <div class="flow-column">
+          <span class="eyebrow eyebrow--tight">ON YOUR APPLE TV</span>
+          <div class="flow-node flow-node--highlight"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="7 4 20 12 7 20 7 4"></polygon></svg><span class="flow-node-copy"><span class="flow-node-title">Tellio</span><span class="flow-node-sub">Browses, plays and remembers where you were</span></span></div>
+          <div class="flow-node"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path></svg><span class="flow-node-copy"><span class="flow-node-title">Your logins stay here</span><span class="flow-node-sub">Kept in the Apple TV's Keychain, never sent to us</span></span></div>
+        </div>
+        <div class="flow-column">
+          <span class="eyebrow eyebrow--tight">ADDED INFORMATION</span>
+          <div class="flow-node"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-film"></use></svg><span class="flow-node-copy"><span class="flow-node-title">TMDB</span><span class="flow-node-sub">Artwork, descriptions and cast</span></span></div>
+          <div class="flow-node"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-sports"></use></svg><span class="flow-node-copy"><span class="flow-node-title">ESPN &amp; Jolpica</span><span class="flow-node-sub">Fixtures, scores and tables</span></span></div>
+          <div class="flow-node"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-clock"></use></svg><span class="flow-node-copy"><span class="flow-node-title">Trakt (optional)</span><span class="flow-node-sub">Sync what you've watched</span></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="install" class="section section--deferred">
+      <div class="section-header">
+        <span class="eyebrow">INSTALL</span>
+        <h2 class="section-heading">Get Tellio on your Apple TV</h2>
+        <p class="section-lead">Tellio isn't on the App Store yet, so for now you install it yourself, with a signing service or a free sideloading tool. It needs tvOS 18 or later.</p>
+      </div>
+      <ol class="grid-cards step-list">
+        <li class="card">
+          <span class="step-badge" aria-hidden="true">1</span>
+          <h3 class="card-title">Download the latest build</h3>
+          <p class="card-body">Get Tellio.ipa from the GitHub releases page. Every build is listed with what changed.</p>
+        </li>
+        <li class="card">
+          <span class="step-badge" aria-hidden="true">2</span>
+          <h3 class="card-title">Sideload it</h3>
+          <p class="card-body">Install it with Signulous, a paid service that needs no computer, or for free with atvloadly on a Linux machine at home.</p>
+        </li>
+        <li class="card">
+          <span class="step-badge" aria-hidden="true">3</span>
+          <h3 class="card-title">Open and set up</h3>
+          <p class="card-body">Follow the short setup. Tellio tells you when a newer build is out.</p>
+        </li>
+      </ol>
+      <div class="cta-row">
+        <a href="https://github.com/MS2620/tellio/releases" class="btn btn-md btn-primary"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4 1.3-4-2-6-2.5M15 21v-3.5a3 3 0 0 0-.9-2.3c3-.3 6-1.5 6-6.6a5 5 0 0 0-1.4-3.6 4.7 4.7 0 0 0-.1-3.5s-1.1-.3-3.6 1.4a12.4 12.4 0 0 0-6.5 0C6 1.2 4.9 1.5 4.9 1.5a4.7 4.7 0 0 0-.1 3.5A5 5 0 0 0 3.4 8.6c0 5.1 3 6.3 6 6.6a3 3 0 0 0-.9 2.3V21"></path></svg>Download from GitHub</a>
+        <a href="install.html" class="btn btn-md btn-secondary">Full install guide</a>
+      </div>
+    </section>
+
+    <section id="limits" class="section-limits section--deferred">
+      <div class="card card--panel">
+        <span class="eyebrow">KNOWN LIMITATIONS</span>
+        <h2 class="panel-heading">It's a beta</h2>
+        <ul class="dot-list">
+          <li><span class="dot-marker" aria-hidden="true"></span><span>IPTV must use Xtream Codes logins. M3U playlist links aren't supported yet.</span></li>
+          <li><span class="dot-marker" aria-hidden="true"></span><span>Needs tvOS 18 or later.</span></li>
+          <li><span class="dot-marker" aria-hidden="true"></span><span>Installing needs a signing service (Signulous) or atvloadly on a Linux machine at home. There's no App Store or TestFlight version yet.</span></li>
+          <li><span class="dot-marker" aria-hidden="true"></span><span>Backup &amp; restore needs a backup server you run yourself.</span></li>
+          <li><span class="dot-marker" aria-hidden="true"></span><span>The Top Shelf can stay blank after an install; reinstalling usually fixes it.</span></li>
+          <li><span class="dot-marker" aria-hidden="true"></span><span>Tested with a small number of providers and addons so far. Expect rough edges, and please report them.</span></li>
         </ul>
       </div>
-      <div style="padding:30px;border-radius:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;gap:16px">
-        <span style="font-size:13px;font-weight:800;letter-spacing:2px;color:#9fb0cf">PRIVACY</span>
-        <h2 style="margin:0;font-size:26px;font-weight:800">What leaves your Apple TV</h2>
-        <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px">
-          <li style="display:flex;gap:12px;font-size:16px;line-height:1.55;color:#c4cbd8"><span style="flex:none;width:8px;height:8px;margin-top:9px;border-radius:50%;background:#9fb0cf"></span><span>Your IPTV login, addons and watch history stay on your Apple TV. There's no Tellio account.</span></li>
-          <li style="display:flex;gap:12px;font-size:16px;line-height:1.55;color:#c4cbd8"><span style="flex:none;width:8px;height:8px;margin-top:9px;border-radius:50%;background:#9fb0cf"></span><span>Crash reports go to Sentry so problems can be fixed. They contain no logins, stream links, server or channel names, or watch history. Turn them off in Settings › About.</span></li>
-          <li style="display:flex;gap:12px;font-size:16px;line-height:1.55;color:#c4cbd8"><span style="flex:none;width:8px;height:8px;margin-top:9px;border-radius:50%;background:#9fb0cf"></span><span>Feedback you send becomes a public GitHub issue: your message, its type and, if you choose, your tvOS version, Apple TV model and Tellio build. An email you leave for a reply is kept private.</span></li>
-          <li style="display:flex;gap:12px;font-size:16px;line-height:1.55;color:#c4cbd8"><span style="flex:none;width:8px;height:8px;margin-top:9px;border-radius:50%;background:#9fb0cf"></span><span>Tellio asks TMDB, ESPN and Jolpica for film and sports information, and Trakt only if you sign in.</span></li>
+      <div class="card card--panel">
+        <span class="eyebrow">PRIVACY</span>
+        <h2 class="panel-heading">What leaves your Apple TV</h2>
+        <ul class="dot-list">
+          <li><span class="dot-marker" aria-hidden="true"></span><span>Your IPTV login, addons and watch history stay on your Apple TV. There's no Tellio account.</span></li>
+          <li><span class="dot-marker" aria-hidden="true"></span><span>Crash reports go to Sentry so problems can be fixed. They contain no logins, stream links, server or channel names, or watch history. Turn them off in Settings › About.</span></li>
+          <li><span class="dot-marker" aria-hidden="true"></span><span>Feedback you send becomes a public GitHub issue: your message, its type and, if you choose, your tvOS version, Apple TV model and Tellio build. An email you leave for a reply is kept private.</span></li>
+          <li><span class="dot-marker" aria-hidden="true"></span><span>Tellio asks TMDB, ESPN and Jolpica for film and sports information, and Trakt only if you sign in.</span></li>
         </ul>
       </div>
     </section>
 
-    <section id="faq" style="max-width:1200px;margin:0 auto;padding:70px 24px 100px;display:flex;flex-direction:column;gap:30px">
-      <div style="display:flex;flex-direction:column;gap:10px">
-        <span style="font-size:13px;font-weight:800;letter-spacing:2px;color:#9fb0cf">FAQ</span>
-        <h2 style="margin:0;font-size:clamp(1.8rem, 3.5vw, 2.6rem);font-weight:800;letter-spacing:-0.01em">Questions</h2>
+    <section id="faq" class="section section--faq section--deferred">
+      <div class="section-header section-header--full">
+        <span class="eyebrow">FAQ</span>
+        <h2 class="section-heading">Questions</h2>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(22rem, 1fr));gap:16px">
-        <div style="padding:24px 28px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)">
-        <h3 style="margin:0 0 8px;font-size:18px;font-weight:700">Is Tellio free?</h3>
-        <p style="margin:0;font-size:16px;line-height:1.6;color:#b9c0cc">Yes. There's no subscription and no account to make.</p>
-      </div>
-        <div style="padding:24px 28px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)">
-        <h3 style="margin:0 0 8px;font-size:18px;font-weight:700">Does it come with channels or films?</h3>
-        <p style="margin:0;font-size:16px;line-height:1.6;color:#b9c0cc">No. Tellio only plays what your own IPTV account and Stremio addons provide. Use services you're entitled to.</p>
-      </div>
-        <div style="padding:24px 28px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)">
-        <h3 style="margin:0 0 8px;font-size:18px;font-weight:700">What do I need?</h3>
-        <p style="margin:0;font-size:16px;line-height:1.6;color:#b9c0cc">An Apple TV on tvOS 18 or later, a way to install it (Signulous, or atvloadly on a Linux machine at home), and an IPTV account and/or Stremio addons.</p>
-      </div>
-        <div style="padding:24px 28px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)">
-        <h3 style="margin:0 0 8px;font-size:18px;font-weight:700">Where are my logins kept?</h3>
-        <p style="margin:0;font-size:16px;line-height:1.6;color:#b9c0cc">On your Apple TV, in its Keychain. Backups are encrypted on the Apple TV before they're sent to the server you choose.</p>
-      </div>
-        <div style="padding:24px 28px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)">
-        <h3 style="margin:0 0 8px;font-size:18px;font-weight:700">Will it be on the App Store?</h3>
-        <p style="margin:0;font-size:16px;line-height:1.6;color:#b9c0cc">Not yet. For now it's installed by sideloading.</p>
-      </div>
-        <div style="padding:24px 28px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)">
-        <h3 style="margin:0 0 8px;font-size:18px;font-weight:700">Something isn't working?</h3>
-        <p style="margin:0;font-size:16px;line-height:1.6;color:#b9c0cc">Use Settings › About › Send feedback on the Apple TV, or open an issue on GitHub.</p>
-      </div>
+      <div class="grid-faq">
+        <div class="card card--compact">
+          <h3 class="card-title--faq">Is Tellio free?</h3>
+          <p class="card-body card-body--relaxed">Yes. There's no subscription and no account to make.</p>
+        </div>
+        <div class="card card--compact">
+          <h3 class="card-title--faq">Does it come with channels or films?</h3>
+          <p class="card-body card-body--relaxed">No. Tellio only plays what your own IPTV account and Stremio addons provide. Use services you're entitled to.</p>
+        </div>
+        <div class="card card--compact">
+          <h3 class="card-title--faq">What do I need?</h3>
+          <p class="card-body card-body--relaxed">An Apple TV on tvOS 18 or later, a way to install it (Signulous, or atvloadly on a Linux machine at home), and an IPTV account and/or Stremio addons.</p>
+        </div>
+        <div class="card card--compact">
+          <h3 class="card-title--faq">Where are my logins kept?</h3>
+          <p class="card-body card-body--relaxed">On your Apple TV, in its Keychain. Backups are encrypted on the Apple TV before they're sent to the server you choose.</p>
+        </div>
+        <div class="card card--compact">
+          <h3 class="card-title--faq">Will it be on the App Store?</h3>
+          <p class="card-body card-body--relaxed">Not yet. For now it's installed by sideloading.</p>
+        </div>
+        <div class="card card--compact">
+          <h3 class="card-title--faq">Something isn't working?</h3>
+          <p class="card-body card-body--relaxed">Use Settings › About › Send feedback on the Apple TV, or open an issue on GitHub.</p>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer style="border-top:1px solid rgba(255,255,255,0.1);background:#0b0e14">
-    <div style="max-width:1200px;margin:0 auto;padding:40px 24px;display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;font-size:14px;line-height:1.6;color:#a9b1bf">
-      <div style="display:flex;flex-direction:column;gap:8px;max-width:640px">
-        <span style="font-size:16px;font-weight:800;color:#ffffff">Tellio</span>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-meta">
+        <span class="footer-brand">Tellio</span>
         <span>Film and TV information and artwork from TMDB. This product uses the TMDB API but is not endorsed or certified by TMDB.</span>
         <span>Tellio isn't affiliated with Apple, Stremio, TMDB, Trakt or ESPN. Apple TV and tvOS are trademarks of Apple Inc.</span>
       </div>
-      <div style="display:flex;gap:20px;align-items:flex-start"><a href="https://github.com/MS2620/tellio" style="text-decoration:none">GitHub</a><a href="https://github.com/MS2620/tellio/releases" style="text-decoration:none">Releases</a><a href="https://github.com/MS2620/tellio/issues" style="text-decoration:none">Report a problem</a></div>
+      <div class="footer-links"><a href="https://github.com/MS2620/tellio">GitHub</a><a href="https://github.com/MS2620/tellio/releases">Releases</a><a href="https://github.com/MS2620/tellio/issues">Report a problem</a></div>
     </div>
   </footer>
 </div>
